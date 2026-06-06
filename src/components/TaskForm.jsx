@@ -4,6 +4,7 @@ export default function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("medium");
+  const [dueDate, setDueDate] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,6 +16,7 @@ export default function TaskForm({ onAdd }) {
       title: trimmed,
       description: description.trim(),
       priority,
+      dueDate: dueDate || null,
       completed: false,
       createdAt: new Date().toISOString(),
     });
@@ -22,6 +24,7 @@ export default function TaskForm({ onAdd }) {
     setTitle("");
     setDescription("");
     setPriority("medium");
+    setDueDate("");
   }
 
   return (
@@ -42,6 +45,12 @@ export default function TaskForm({ onAdd }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
+        />
+        <input
+          className="task-form-input task-form-date"
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
         />
         <div className="task-form-row">
           <select
