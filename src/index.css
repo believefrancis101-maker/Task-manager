@@ -419,12 +419,15 @@ body {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .task-item-title {
   font-size: 0.92rem;
   font-weight: 600;
+  overflow-wrap: break-word;
   word-break: break-word;
+  min-width: 0;
 }
 
 .task-priority {
